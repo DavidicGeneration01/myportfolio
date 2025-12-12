@@ -2,6 +2,14 @@ import React from 'react';
 import { FileText, Mail, GraduationCap, Trophy } from 'lucide-react';
 
 const About: React.FC = () => {
+  const scrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="about" className="py-20 md:py-32 bg-slate-50 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,6 +52,7 @@ const About: React.FC = () => {
             <div className="mt-10 flex flex-wrap gap-4">
               <a 
                 href="#contact"
+                onClick={scrollToContact}
                 className="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-colors"
               >
                 <Mail className="w-5 h-5 mr-2" />
