@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
         </div>
 
         <form 
-          action="https://formsubmit.co/aladedavid4@gmail.com" 
+          action="https://formsubmit.co/el/jareti" 
           method="POST" 
           className="space-y-6"
         >

@@ -9,13 +9,13 @@
     <style>
       html {
         scroll-behavior: smooth;
-        scroll-padding-top: 80px; /* Offsets anchor jumps by 80px (h-20) to clear the fixed navbar */
+        scroll-padding-top: 80px;
       }
       body {
         font-family: 'Inter', sans-serif;
-        background-color: #f8fafc; /* Slate 50 */
+        background-color: #f8fafc;
       }
-      /* Custom Scrollbar for a polished look */
+      /* Custom Scrollbar */
       ::-webkit-scrollbar {
         width: 8px;
       }
@@ -29,20 +29,47 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #94a3b8;
       }
+
+      /* Typing Effect Animation */
+      .typing-effect {
+        display: inline-block;
+        overflow: hidden;
+        border-right: 3px solid #fbbf24; /* Cursor color */
+        white-space: nowrap;
+        margin: 0;
+        animation: 
+          typing 3.5s steps(30, end),
+          blink-caret .75s step-end infinite;
+        max-width: 0;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes typing {
+        from { max-width: 0 }
+        to { max-width: 100% }
+      }
+
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #fbbf24; }
+      }
     </style>
-  <script type="importmap">
+<script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
     "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
-    "recharts": "https://esm.sh/recharts@^3.5.1"
+    "vite": "https://esm.sh/vite@^7.2.7",
+    "recharts": "https://esm.sh/recharts@^3.5.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>

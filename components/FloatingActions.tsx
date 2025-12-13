@@ -24,6 +24,13 @@ const FloatingActions: React.FC = () => {
     });
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="fixed bottom-8 right-8 flex flex-col gap-3 z-40">
       
@@ -32,8 +39,12 @@ const FloatingActions: React.FC = () => {
         <LayoutGrid className="w-5 h-5" />
       </button>
 
-      {/* Decorative Chat Button (mimicking screenshot) */}
-      <button className="w-12 h-12 bg-white text-blue-600 rounded-full shadow-lg border-2 border-blue-100 flex items-center justify-center hover:scale-110 transition-transform relative">
+      {/* Chat Button - Scrolls to Contact */}
+      <button 
+        onClick={scrollToContact}
+        className="w-12 h-12 bg-white text-blue-600 rounded-full shadow-lg border-2 border-blue-100 flex items-center justify-center hover:scale-110 transition-transform relative"
+        aria-label="Contact Me"
+      >
         <MessageSquare className="w-5 h-5" />
         <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></span>
       </button>
@@ -43,6 +54,7 @@ const FloatingActions: React.FC = () => {
         <button
           onClick={scrollToTop}
           className="w-12 h-12 bg-blue-500 text-white rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300"
+          aria-label="Scroll to top"
         >
           <ArrowUp className="w-6 h-6" />
         </button>
